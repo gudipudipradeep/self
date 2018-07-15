@@ -25,6 +25,10 @@ body {
   background: #fff;
 }
 
+.div-height-text-area{
+	height: 80%;
+}
+
 textarea.form-control {
   height: 80%;
 }

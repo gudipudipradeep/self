@@ -9,8 +9,8 @@
   <!-- style="border-right: double;" -->
 <ul class="list-group">
   <li class="list-group-item list-group-item-action" style="color: white">Tutorial Republic</li>
-  <li class="list-group-item list-group-item-action"><a href="#" class="alert-link">JSON Validator</a></li>
-  <li class="list-group-item list-group-item-action"><a href="#" class="alert-link">YAML Validator</a></li>
+  <li class="list-group-item list-group-item-action" id="json_textarea"><a href="#" class="alert-link">JSON Validator</a></li>
+  <li class="list-group-item list-group-item-action" id="yaml_textarea"><a href="#" class="alert-link">YAML Validator</a></li>
   <li class="list-group-item list-group-item-action"><a href="#" class="alert-link">JSON Validator</a></li>
   <li class="list-group-item list-group-item-action"><a href="#" class="alert-link">JSON Validator</a></li>
 </ul>
@@ -41,9 +41,10 @@
               </li>
           </ul>
   </nav>
-  <div class="container-fluid text-center">
-    <h3><span class="badge badge-secondary">Validate Json</span></h3>
+  <div class="container-fluid text-center div-height-text-area">
+    <h3><span class="badge badge-secondary" id="validator_name">Validate Json</span></h3>
     <textarea class="form-control"  id="json_validate"></textarea>
+    <br/>
     <button type="button" id="json_btn_validate" class="btn btn-outline-primary">Validate</button>
     <button type="button" id="json_btn_format" class="btn btn-outline-primary">Format</button>
     <div class="alert alert-success" role="alert" id="json_validate_status">
