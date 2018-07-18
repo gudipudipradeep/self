@@ -42,40 +42,37 @@
           </ul>
   </nav>
   <div class="container-fluid text-center div-height-text-area">
-    <h3><span class="badge badge-secondary" id="validator_name">Validate Json</span></h3>
-    <div  style="border:0.5px solid black;height: 88%;">
-	<!--<div> | | </div> -->
-		<div class="btn-group btn-group-justified" role="group">
-		  <div class="btn-group" role="group">
-		  <span class="glyphicon glyphicon-print"></span>
-		    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-		  </div>
-		  <div class="btn-group" role="group">
-		    <button type="button" class="btn btn-default">Middle</button>
-		  </div>
-		  <div class="btn-group" role="group">
-		    <button type="button" class="btn btn-default">Right</button>
-		  </div>
-		</div>
-    	<input type="email" class="form-control" id="exampleInputEmail1"  placeholder="Enter email">
-    	<!-- <table style="width: 100%;">
-    		<tr><th>a</th><th>b</th><th>c</th></tr>
-    		<tr><th colspan="3"><input type="email" class="form-control" id="exampleInputEmail1"  placeholder="Enter email"></th></tr>		
-    	</table> -->
-    	<textarea class="form-control"  id="json_validate" style="height: 83%;"></textarea> 
-    </div>
-    <br/>
-    <input type="file" id="file_input" webkitdirectory="" directory="">
-    <button type="button" id="json_btn_validate" class="btn btn-outline-primary">Validate</button>
-    <button type="button" id="json_btn_format" class="btn btn-outline-primary">Format</button>
-    <button type="button" id="json_btn_format" class="btn btn-outline-primary">Json Beautifier</button>
-    <div class="alert alert-success" role="alert" id="json_validate_status">
-      
-    </div>
+  
+  	<div class="fileUpload btn btn-primary">
+    	<span>Upload Folder</span>
+    	<input type="file" id="files" name="files[]"   multiple webkitdirectory class="upload" />
+	</div>
+	
+  	<div class="fileUpload btn btn-primary">
+    	<span>Single Files</span>
+		<input name="single_file[]" type="file" class="upload" id="single_file" multiple="" />
+	</div>
+		
+	<button id="clear" class="btn  btn-danger">Clear</button>
+	<div class="table-responsive">          
+	  <table class="table" id="file_content_details">
+	    <thead>
+	      <tr>
+	        <th>File Names</th>
+	        <th>File Size</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      
+	    </tbody>
+	  </table>
+	</div>
+	<div id="output"></div> 
+	<br/>
+    
   </div>
   
 </div>
-<script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/jquery-1.5.2.min.js"></script>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script> -->
 <script src="js/bootstrap.min.js"></script>
