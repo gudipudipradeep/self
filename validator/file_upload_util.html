@@ -42,18 +42,20 @@
           </ul>
   </nav>
   <div class="container-fluid text-center div-height-text-area">
-  
-  	<div class="fileUpload btn btn-primary">
-    	<span>Upload Folder</span>
-    	<input type="file" id="files" name="files[]"   multiple webkitdirectory class="upload" />
-	</div>
-	
-  	<div class="fileUpload btn btn-primary">
-    	<span>Single Files</span>
-		<input name="single_file[]" type="file" class="upload" id="single_file" multiple="" />
-	</div>
+  	<form id='file-catcher'>
+	  	<div class="fileUpload btn btn-primary">
+	    	<span>Upload Folder</span>
+	    	<input type="file" id="files" name="files[]"   multiple webkitdirectory class="upload" />
+		</div>
 		
-	<button id="clear" class="btn  btn-danger">Clear</button>
+	  	<div class="fileUpload btn btn-primary">
+	    	<span>Single Files</span>
+			<input name="single_file[]" type="file" class="upload" id="single_file" multiple="" />
+		</div>
+			
+		<button id="clear" class="btn  btn-danger">Clear</button>
+		<button class="btn  btn-danger" type="submit">Upload</button>
+	</form>	 
 	<div class="table-responsive">          
 	  <table class="table" id="file_content_details">
 	    <thead>

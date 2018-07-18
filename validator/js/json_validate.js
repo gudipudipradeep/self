@@ -1,6 +1,7 @@
 (function () {
 
 // File Upload Code Changes
+	var fileList = [];
 	var input = document.getElementById('files');
 	var single_file = document.getElementById('single_file');
 	
@@ -18,6 +19,9 @@
 	        cell1.innerHTML = files[i].webkitRelativePath;
 	        cell2.innerHTML = files[i].size
 	        
+	        //append the file list
+	        fileList.push(files[i]);
+	        
 	    }
 	}
 	//single file upload
@@ -32,6 +36,8 @@
 	        // Row With Data
 	        cell1.innerHTML = files[i].name;
 	        cell2.innerHTML = files[i].size
+	        // Appending file information
+	        fileList.push(files[i]);
 	    }
 	}
 	
@@ -40,6 +46,7 @@ var control = $("#control");
 $("#clear").click(function () {
 	$("#file_content_details").find("tr:not(:first)").remove();
 	$('#files').val("");
+	fileList = []
 });
 
 //
@@ -76,4 +83,31 @@ $("#json_textarea").click(function(){
 	$("#validator_name").html( "Validate Json" );
 });
 
+//file uploading js
+var fileCatcher = document.getElementById('file-catcher');
+fileCatcher.addEventListener('submit', function (evnt) {
+  	evnt.preventDefault();
+    var formData = new FormData($(this).parents('form')[0]);
+
+    $.ajax({
+        url: 'http://localhost:8000/',
+        type: 'GET',
+        xhr: function() {
+            var myXhr = $.ajaxSettings.xhr();
+            return myXhr;
+        },
+        success: function (data) {
+            alert("Data Uploaded: "+data);
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) { 
+            alert("Status: " + XMLHttpRequest);
+        },
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false
+    });
+    return false;
+});
+  
 })();
