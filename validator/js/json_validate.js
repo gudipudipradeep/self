@@ -86,12 +86,15 @@ $("#json_textarea").click(function(){
 //file uploading js
 var fileCatcher = document.getElementById('file-catcher');
 fileCatcher.addEventListener('submit', function (evnt) {
+	
   	evnt.preventDefault();
-    var formData = new FormData($(this).parents('form')[0]);
+  	var form = $("#file-catcher")[0];
+  	var formData = new FormData(form);
 
     $.ajax({
-        url: 'http://localhost:8000/',
-        type: 'GET',
+        url: 'http://localhost:8000/upload',
+        type: 'POST',
+        enctype: 'multipart/form-data',
         xhr: function() {
             var myXhr = $.ajaxSettings.xhr();
             return myXhr;
@@ -99,15 +102,17 @@ fileCatcher.addEventListener('submit', function (evnt) {
         success: function (data) {
             alert("Data Uploaded: "+data);
         },
-        error: function(XMLHttpRequest, textStatus, errorThrown) { 
-            alert("Status: " + XMLHttpRequest);
+        error: function(e) { 
+            alert("Status: " + e.responseText);
         },
         data: formData,
         cache: false,
         contentType: false,
-        processData: false
+        processData: false,
+        timeout: 600000,
     });
     return false;
 });
+
   
 })();
