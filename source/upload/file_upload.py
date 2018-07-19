@@ -9,6 +9,15 @@ def helloworld():
 
 @post("/upload")
 def upload():
-    uploads = request.files.getall('files')
+#   print(request.body.read())
+    uploads = request.files.getall('files[]')
+    single_files = request.files.getall('single_file[]')
+    
     for upload in uploads:
+        print(upload.__dict__)
+        print(upload.filename)
+        print(upload.raw_filename)
+        print(upload.headers.filename)
+        
+    for upload in single_files:
         print(upload.filename)
