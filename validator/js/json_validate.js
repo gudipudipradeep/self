@@ -1,6 +1,40 @@
 (function () {
-
-// File Upload Code Changes
+	//
+	$( "#json_validate_status" ).hide();
+	$('#side_nav').toggle(
+	function() {
+	  $('#body_node').css('left', '0');
+	},
+	function() {
+	  $('#body_node').css('left', '200px');
+	});
+	$("#json_btn_validate").click(function(){
+		$( "#json_validate_status" ).hide();
+		try {
+		  	var json_obj = JSON.parse($('textarea#json_validate').val());
+		  	$( "#json_validate_status" ).html( "JSON Validated Successfully!" );
+		  	$( "#json_validate_status" ).show();
+		}
+		catch (err) {
+			$( "#json_validate_status" ).html( err.toString() );
+			$( "#json_validate_status" ).show();
+			alert(err);
+		}
+	});
+	$("#json_btn_format").click(function(){
+		$( "#json_validate_status" ).hide();
+		var format_obj = JSON.parse($('textarea#json_validate').val());
+		$("textarea#json_validate").val(JSON.stringify(format_obj, null, 4));
+	});
+	$("#yaml_textarea").click(function(){
+		$("#validator_name").html( "Validate YAML" );
+	});
+	$("#json_textarea").click(function(){
+		$("#validator_name").html( "Validate Json" );
+	});
+	
+	
+	// File Upload Code Changes
 	var fileList = [];
 	var input = document.getElementById('files');
 	var single_file = document.getElementById('single_file');
@@ -41,78 +75,45 @@
 	    }
 	}
 	
-var control = $("#control");
-
-$("#clear").click(function () {
-	$("#file_content_details").find("tr:not(:first)").remove();
-	$('#files').val("");
-	fileList = []
-});
-
-//
-$( "#json_validate_status" ).hide();
-$('#side_nav').toggle(
-function() {
-  $('#body_node').css('left', '0');
-},
-function() {
-  $('#body_node').css('left', '200px');
-});
-$("#json_btn_validate").click(function(){
-	$( "#json_validate_status" ).hide();
-	try {
-	  	var json_obj = JSON.parse($('textarea#json_validate').val());
-	  	$( "#json_validate_status" ).html( "JSON Validated Successfully!" );
-	  	$( "#json_validate_status" ).show();
-	}
-	catch (err) {
-		$( "#json_validate_status" ).html( err.toString() );
-		$( "#json_validate_status" ).show();
-		alert(err);
-	}
-});
-$("#json_btn_format").click(function(){
-	$( "#json_validate_status" ).hide();
-	var format_obj = JSON.parse($('textarea#json_validate').val());
-	$("textarea#json_validate").val(JSON.stringify(format_obj, null, 4));
-});
-$("#yaml_textarea").click(function(){
-	$("#validator_name").html( "Validate YAML" );
-});
-$("#json_textarea").click(function(){
-	$("#validator_name").html( "Validate Json" );
-});
-
-//file uploading js
-var fileCatcher = document.getElementById('file-catcher');
-fileCatcher.addEventListener('submit', function (evnt) {
+	var control = $("#control");
 	
-  	evnt.preventDefault();
-  	var form = $("#file-catcher")[0];
-  	var formData = new FormData(form);
+	$("#clear").click(function () {
+		$("#file_content_details").find("tr:not(:first)").remove();
+		$('#files').val("");
+		fileList = []
+	});
+	
 
-    $.ajax({
-        url: 'http://localhost:8000/upload',
-        type: 'POST',
-        enctype: 'multipart/form-data',
-        xhr: function() {
-            var myXhr = $.ajaxSettings.xhr();
-            return myXhr;
-        },
-        success: function (data) {
-            alert("Data Uploaded: "+data);
-        },
-        error: function(e) { 
-            alert("Status: " + e.responseText);
-        },
-        data: formData,
-        cache: false,
-        contentType: false,
-        processData: false,
-        timeout: 600000,
-    });
-    return false;
-});
+	//file uploading js
+	var fileCatcher = document.getElementById('file-catcher');
+	fileCatcher.addEventListener('submit', function (evnt) {
+		
+	  	evnt.preventDefault();
+	  	var form = $("#file-catcher")[0];
+	  	var formData = new FormData(form);
+	
+	    $.ajax({
+	        url: 'http://localhost:8000/upload',
+	        type: 'POST',
+	        enctype: 'multipart/form-data',
+	        xhr: function() {
+	            var myXhr = $.ajaxSettings.xhr();
+	            return myXhr;
+	        },
+	        success: function (data) {
+	            alert("Data Uploaded: "+data);
+	        },
+	        error: function(e) { 
+	            alert("Status: " + e.responseText);
+	        },
+	        data: formData,
+	        cache: false,
+	        contentType: false,
+	        processData: false,
+	        timeout: 600000,
+	    });
+	    return false;
+	});
 
   
 })();
