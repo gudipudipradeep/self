@@ -21,3 +21,8 @@ def upload():
         
     for upload in single_files:
         print(upload.filename)
+        
+
+@post("/yamlvalidate")        
+def yaml_validate():
+    pass

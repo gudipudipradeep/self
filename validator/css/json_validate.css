@@ -14,7 +14,7 @@ body {
   top: 0px;
   width: 200px;
   bottom: 0px;
-  background: orange;
+  background: white;
 }
 
 #body_node {
@@ -48,4 +48,10 @@ textarea.form-control {
     cursor: pointer;
     opacity: 0;
     filter: alpha(opacity=0);
+}
+.bottom_border {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid black;
 }

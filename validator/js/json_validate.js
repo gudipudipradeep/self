@@ -93,7 +93,7 @@
 	  	var formData = new FormData(form);
 	
 	    $.ajax({
-	        url: 'http://localhost:8000/upload',
+	        url: 'http://pradeepgudipudi.pythonanywhere.com/upload',
 	        type: 'POST',
 	        enctype: 'multipart/form-data',
 	        xhr: function() {
