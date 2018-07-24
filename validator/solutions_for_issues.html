@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/json_validate.css"/>
+</head>
+<body>
+<div id="main_node" style="border-right: double;">
+  <!-- style="border-right: double;" -->
+<ul class="list-group">
+  <li class="list-group-item list-group-item-action" style="color: white">Tutorial Republic</li>
+  <li class="list-group-item list-group-item-action" id="json_textarea"><a href="#" class="alert-link">JSON Validator</a></li>
+  <li class="list-group-item list-group-item-action" id="yaml_textarea"><a href="#" class="alert-link">YAML Validator</a></li>
+  <li class="list-group-item list-group-item-action"><a href="#" class="alert-link">JSON Validator</a></li>
+  <li class="list-group-item list-group-item-action"><a href="#" class="alert-link">JSON Validator</a></li>
+</ul>
+
+</div>
+<div id="body_node">
+  <nav class="navbar navbar-dark bg-dark" role="navigation">
+      <div class="navbar-header">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" id="side_nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#">Tutorial Republic</a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+          <ul class="nav justify-content-end">
+              <li class="nav-item"><a href="home.html" class="nav-link text-white">Home</a></li>
+              <li class="nav-item"><a href="home.html" class="nav-link text-white">About</a></li>
+              <li class="nav-item"><a href="home.html" class="nav-link text-white">Contact</a></li>
+              <li class="dropdown nav-item">
+                      <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle text-white" role="button" aria-haspopup="true" aria-expanded="false"> Tutorials</a>
+                      <div class="dropdown-menu">
+                          <a href="python.html" class="dropdown-item">Python</a>
+                          <a href="python.html" class="dropdown-item">Windowos</a>
+                          <a href="linux.html" class="dropdown-item">Linux</a>
+                      <div class="dropdown-divider"></div>
+                      <a href="#" class="dropdown-item" href="#">Trash</a>
+                  </div>
+              </li>
+          </ul>
+  </nav>
+  <div class="container-fluid text-center div-height-text-area">
+	<input class="form-control-lg bottom_border" type="text" placeholder=""> 
+	<div class="card bottom_border">
+	  <div class="card-body">
+	    This is some text within a card body.
+	  </div>
+	  
+	  <div class="card-body">
+	    This is some text within a card body.
+	  </div>
+	</div>  
+    <button type="button" id="json_btn_validate" class="btn btn-outline-primary">Validate</button>
+    <button type="button" id="json_btn_format" class="btn btn-outline-primary">Format</button>
+    <div class="alert alert-success" role="alert" id="json_validate_status">
+      
+    </div>
+  </div>
+  
+</div>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/jquery-1.5.2.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script> -->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/json_validate.js"></script>
+</script>
+</body>
+</html>

@@ -93,7 +93,7 @@
 	  	var formData = new FormData(form);
 	
 	    $.ajax({
-	        url: 'http://pradeepgudipudi.pythonanywhere.com/upload',
+	        url: 'http://127.0.0.1:8080/upload',
 	        type: 'POST',
 	        enctype: 'multipart/form-data',
 	        xhr: function() {
@@ -102,6 +102,7 @@
 	        },
 	        success: function (data) {
 	            alert("Data Uploaded: "+data);
+	            alert(JSON.stringify(data))
 	        },
 	        error: function(e) { 
 	            alert("Status: " + e.responseText);
