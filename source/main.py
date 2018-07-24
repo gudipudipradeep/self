@@ -9,6 +9,8 @@ _allow_origin = '*'
 _allow_methods = 'PUT, GET, POST, DELETE, OPTIONS'
 _allow_headers = 'Authorization, Origin, Accept, Content-Type, X-Requested-With'
 
+app.config['file_save_path']    = "C:\\Infor\\file_save_folder\\" 
+
 @hook('after_request')
 def enable_cors():
     '''Add headers to enable CORS'''
@@ -21,6 +23,6 @@ def enable_cors():
 
 
 if __name__ == '__main__':
-    app.run(server='cgi')
+#     app.run(server='cgi')
 #     app.run(host = '127.0.0.1', port = 8000)
-#     run(app)
+    run(app)
