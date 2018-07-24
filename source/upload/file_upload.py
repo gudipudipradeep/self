@@ -5,13 +5,20 @@ import random
 import os
 import zipfile
 import shutil
+from bottle import static_file 
 
 
-def zipdir(path, ziph):
-    # ziph is zipfile handle
-    for root, dirs, files in os.walk(path):
-        for file in files:
-            ziph.write(os.path.join(root, file))
+def zip(src, dst):
+    zf = zipfile.ZipFile("%s.zip" % (dst), "w", zipfile.ZIP_DEFLATED)
+    abs_src = os.path.abspath(src)
+    for dirname, subdirs, files in os.walk(src):
+        for filename in files:
+            absname = os.path.abspath(os.path.join(dirname, filename))
+            arcname = absname[len(abs_src) + 1:]
+            print 'zipping %s as %s' % (os.path.join(dirname, filename),
+                                        arcname)
+            zf.write(absname, arcname)
+    zf.close()
             
 
 @get('/')
@@ -54,14 +61,15 @@ def upload():
               
         upload.save(file_full_path)
         
-    zipf = zipfile.ZipFile(zip_create+'.zip', 'w', zipfile.ZIP_DEFLATED)
-    zipdir(zip_create, zipf)
-    zipf.close()
+    zip(zip_create, zip_create)
     
     shutil.rmtree(zip_create)
+    response.headers['Content-Type'] = 'application/json'
+    return {"Hashcode": zip_create_name}    
     
-    
-            
+@get("/download/<filename:path>")        
+def download_zip(filename):
+    return static_file("{0}.zip".format(filename), root='C:\\Infor\\file_save_folder\\', download="{0}.zip".format(filename))     
         
 
 @post("/yamlvalidate")        
