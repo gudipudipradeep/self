@@ -6,6 +6,7 @@ import os
 import zipfile
 import shutil
 from bottle import static_file 
+from bottle import error
 
 
 def zip(src, dst):
@@ -69,9 +70,13 @@ def upload():
     
 @get("/download/<filename:path>")        
 def download_zip(filename):
-    return static_file("{0}.zip".format(filename), root='C:\\Infor\\file_save_folder\\', download="{0}.zip".format(filename))     
+    return static_file("{0}.zip".format(filename), root=request.app.config['file_save_path'], download="{0}.zip".format(filename))     
         
 
 @post("/yamlvalidate")        
 def yaml_validate():
     pass
+
+@error(404)
+def error404(error):
+    return 'Nothing here, sorry'
