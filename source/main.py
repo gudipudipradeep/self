@@ -1,6 +1,7 @@
 from bottle import hook, route, response, run, default_app
 from upload import file_upload
 import sys
+from bottle import static_file
 
 app = application = default_app()
 
@@ -10,6 +11,12 @@ _allow_methods = 'PUT, GET, POST, DELETE, OPTIONS'
 _allow_headers = 'Authorization, Origin, Accept, Content-Type, X-Requested-With'
 
 app.config['file_save_path']    = "C:\\Infor\\file_save_folder\\" 
+
+
+@route('/<filepath:path>')
+def server_static(filepath):
+    print filepath
+    return static_file(filepath, root='C:\\Users\\pgudipudi\\git\\self\\validator\\')
 
 @hook('after_request')
 def enable_cors():
