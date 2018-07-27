@@ -1,6 +1,6 @@
 (function () {
 	//
-	$( "#json_validate_status" ).hide();
+	$("#json_validate_status,#file_upload_status").hide();
 	$('#side_nav').toggle(
 	function() {
 	  $('#body_node').css('left', '0');
@@ -78,6 +78,7 @@
 	var control = $("#control");
 	
 	$("#clear").click(function () {
+		$("#file_upload_status").hide();
 		$("#file_content_details").find("tr:not(:first)").remove();
 		$('#files').val("");
 		fileList = []
@@ -91,6 +92,18 @@
 	  	evnt.preventDefault();
 	  	var form = $("#file-catcher")[0];
 	  	var formData = new FormData(form);
+	  	
+		var input = document.getElementById('files');
+		var single_file = document.getElementById('single_file');
+		
+		if ((input.files.length > 0) || (single_file.files.length > 0)) {
+			console.log("Files are selected");
+		}else{
+			alert("please select file before upload");
+			return false;
+		}
+		
+
 	
 	    $.ajax({
 	        url: 'http://127.0.0.1:8080/upload',
@@ -102,7 +115,10 @@
 	        },
 	        success: function (data) {
 	            alert("Data Uploaded: "+data);
+	            alert(window.location.hostname+data["Hashcode"])
 	            alert(JSON.stringify(data))
+	            $("#file_upload_status").show();
+	            $("#file_upload_status").append("You can access you are files using this link:  <a href="+data["Hashcode"]+">"+window.location.hostname+data["Hashcode"]+"</a>");
 	        },
 	        error: function(e) { 
 	            alert("Status: " + e.responseText);
@@ -113,6 +129,9 @@
 	        processData: false,
 	        timeout: 600000,
 	    });
+	    
+	    $('#single_file').val("");
+		$('#files').val("");
 	    return false;
 	});
 

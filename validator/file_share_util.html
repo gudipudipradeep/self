@@ -42,7 +42,7 @@
           </ul>
   </nav>
   <div class="container-fluid text-center div-height-text-area">
-  	<form id='file-catcher' enctype="multipart/form-data" >
+  	<form id='file-catcher' enctype="multipart/form-data">
 	  	<div class="fileUpload btn btn-primary">
 	    	<span>Upload Folder</span>
 	    	<input type="file" id="files" name="files[]"   multiple webkitdirectory class="upload" />
@@ -56,6 +56,9 @@
 		<button id="clear" class="btn  btn-danger" type="reset">Clear</button>
 		<button class="btn  btn-danger" type="submit">Upload</button>
 	</form>	 
+	<div class="alert alert-success" id="file_upload_status">
+	  
+	</div>
 	<div class="table-responsive">          
 	  <table class="table" id="file_content_details">
 	    <thead>
