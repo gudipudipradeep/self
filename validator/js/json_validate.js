@@ -114,11 +114,11 @@
 	            return myXhr;
 	        },
 	        success: function (data) {
-	            alert("Data Uploaded: "+data);
-	            alert(window.location.hostname+data["Hashcode"])
-	            alert(JSON.stringify(data))
+//	            alert(window.location.hostname+data["Hashcode"]);
+//	            alert(JSON.stringify(data));
+	            $("#remove_a").remove();
 	            $("#file_upload_status").show();
-	            $("#file_upload_status").append("You can access you are files using this link:  <a href="+data["Hashcode"]+">"+window.location.hostname+data["Hashcode"]+"</a>");
+	            $("#file_upload_status").append("<b id = \"remove_a\"> You can access you are files using this link:  <a href="+data["Hashcode"]+">"+window.location.hostname+data["Hashcode"]+"</a></b>");
 	        },
 	        error: function(e) { 
 	            alert("Status: " + e.responseText);

@@ -66,7 +66,7 @@ def upload():
     
     shutil.rmtree(zip_create)
     response.headers['Content-Type'] = 'application/json'
-    return {"Hashcode": zip_create_name}    
+    return {"Hashcode": "/download/"+zip_create_name}    
     
 @get("/download/<filename:path>")        
 def download_zip(filename):
