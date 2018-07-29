@@ -1,4 +1,4 @@
-from bottle import hook, route, response, run, default_app
+from bottle import hook, route, response, run, default_app, request
 from upload import file_upload
 import sys
 from bottle import static_file
@@ -7,19 +7,24 @@ import os
 app = application = default_app()
  
 
-dir_path = os.path.dirname(os.path.realpath(__file__))
+dir_path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, "validator"))
+download_path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, os.pardir, "fileshare_temp"))
 
 _allow_origin = '*'
 _allow_methods = 'PUT, GET, POST, DELETE, OPTIONS'
 _allow_headers = 'Authorization, Origin, Accept, Content-Type, X-Requested-With'
  
-app.config['file_save_path']    = "C:\\Infor\\file_save_folder\\" 
+if not os.path.exists(os.path.dirname(download_path)):
+    os.makedirs(os.path.dirname(download_path))
+    
+app.config['file_save_path']    = download_path 
+app.config['web_files']    = dir_path
  
  
 @route('/<filepath:path>')
 def server_static(filepath):
     print filepath
-    return static_file(filepath, root='C:\\Users\\pgudipudi\\git\\self\\validator\\')
+    return static_file(filepath, root=request.app.config['web_files'])
  
 @hook('after_request')
 def enable_cors():
@@ -35,4 +40,6 @@ def enable_cors():
 if __name__ == '__main__':
 #     app.run(server='cgi')
 #     app.run(host = '127.0.0.1', port = 8000)
+#     print(dir_path)
     run(app)
+# print(download_path)
