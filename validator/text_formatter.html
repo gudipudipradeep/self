@@ -41,36 +41,9 @@
               </li>
           </ul>
   </nav>
-  <div class="container-fluid text-center div-height-text-area">
-    <h3><span class="badge badge-secondary" id="validator_name">Validate Json</span></h3>
-    <div  style="border:0.5px solid black;height: 88%;">
-	<!--<div> | | </div> -->
-		<div class="btn-group btn-group-justified" role="group" style="height: 11%;">
-		  <div class="btn-group" role="group">
-		  <span class="glyphicon glyphicon-print"></span>
-		    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-		  </div>
-		  <div class="btn-group" role="group">
-		    <button type="button" class="btn btn-default">Middle</button>
-		  </div>
-		  <div class="btn-group" role="group">
-		    <button type="button" class="btn btn-default">Right</button>
-		  </div>
-		</div>
-    	<input type="email" class="form-control" id="exampleInputEmail1"  placeholder="Enter email" style="height: 9%";>
-    	<!-- <table style="width: 100%;">
-    		<tr><th>a</th><th>b</th><th>c</th></tr>
-    		<tr><th colspan="3"><input type="email" class="form-control" id="exampleInputEmail1"  placeholder="Enter email"></th></tr>		
-    	</table> -->
-    	<textarea class="form-control"  id="json_validate" style="height: 80%;"></textarea> 
-    </div>
-    <br/>
-   
-    <button type="button" id="json_btn_validate" class="btn btn-outline-primary">Validate</button>
-    <button type="button" id="json_btn_format" class="btn btn-outline-primary">Format</button>
-    <div class="alert alert-success" role="alert" id="json_validate_status">
-      
-    </div>
+  <div class="container-fluid div-height-text-area">
+    <h3 class="text-center"><span class="badge badge-secondary" id="validator_name">Validate Json</span></h3>
+	<div contenteditable="true" style="height: 80%;border: solid;"></div>
   </div>
   
 </div>

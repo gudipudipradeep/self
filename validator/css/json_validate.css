@@ -55,3 +55,7 @@ textarea.form-control {
   background: transparent;
   border-bottom: 1px solid black;
 }
+pre.console {
+    color: #fff;
+    background-color: #000;
+}
