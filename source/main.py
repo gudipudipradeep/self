@@ -75,5 +75,5 @@ if __name__ == '__main__':
 #     app.run(server='cgi')
 #     app.run(host = '127.0.0.1', port = 8000)
 #     print(dir_path)
-    run(app)
+#     run(app)
 # print(download_path)
