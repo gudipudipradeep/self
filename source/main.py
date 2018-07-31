@@ -35,7 +35,7 @@ def log_to_logger(fn):
         return actual_response
     return _log_to_logger
 
-app = application = default_app()
+app = application = default_app
  
 
 dir_path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, "validator"))
@@ -71,7 +71,7 @@ def enable_cors():
  
  
  
-if __name__ == '__main__':
+# if __name__ == '__main__':
 #     app.run(server='cgi')
 #     app.run(host = '127.0.0.1', port = 8000)
 #     print(dir_path)
