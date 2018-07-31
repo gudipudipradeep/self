@@ -11,7 +11,7 @@ logger = logging.getLogger()
 
 # set up the logger
 logger.setLevel(logging.INFO)
-file_handler = logging.FileHandler('C:\inforbc\myapp.log')
+file_handler = logging.FileHandler('/home/fileraft/logs/fileraft.log')
 formatter = logging.Formatter('%(msg)s')
 file_handler.setLevel(logging.INFO)
 file_handler.setFormatter(formatter)
