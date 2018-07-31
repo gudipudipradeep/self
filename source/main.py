@@ -11,7 +11,7 @@ logger = logging.getLogger()
 
 # set up the logger
 logger.setLevel(logging.INFO)
-file_handler = logging.FileHandler('myapp.log')
+file_handler = logging.FileHandler('C:\inforbc\myapp.log')
 formatter = logging.Formatter('%(msg)s')
 file_handler.setLevel(logging.INFO)
 file_handler.setFormatter(formatter)
@@ -57,7 +57,7 @@ app.config['web_files']    = dir_path
  
 @route('/<filepath:path>')
 def server_static(filepath):
-    print filepath
+    print(filepath)
     return static_file(filepath, root=request.app.config['web_files'])
  
 @hook('after_request')

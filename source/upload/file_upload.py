@@ -16,8 +16,7 @@ def zip(src, dst):
         for filename in files:
             absname = os.path.abspath(os.path.join(dirname, filename))
             arcname = absname[len(abs_src) + 1:]
-            print 'zipping %s as %s' % (os.path.join(dirname, filename),
-                                        arcname)
+            print('zipping %s as %s' % (os.path.join(dirname, filename), arcname))
             zf.write(absname, arcname)
     zf.close()
             
@@ -75,7 +74,9 @@ def download_zip(filename):
 
 @post("/yamlvalidate")        
 def yaml_validate():
-    pass
+    '''Handles name creation'''
+    response.headers['Content-Type'] = 'application/json'
+    return {"Hello World":"Hello World"}
 
 @error(404)
 def error404(error):
