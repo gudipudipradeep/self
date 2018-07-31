@@ -106,7 +106,7 @@
 
 	
 	    $.ajax({
-	        url: 'http://127.0.0.1:8080/upload',
+	        url: '/upload',
 	        type: 'POST',
 	        enctype: 'multipart/form-data',
 	        xhr: function() {
