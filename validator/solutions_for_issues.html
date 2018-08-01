@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon" href="image/P&G.ico">
 <link rel="stylesheet" href="css/bootstrap.min.css" />
 <link rel="stylesheet" href="css/json_validate.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
 </head>
 <body>
 <div id="main_node" style="border-right: double;">
@@ -41,26 +44,37 @@
               </li>
           </ul>
   </nav>
-  <div class="container-fluid text-center div-height-text-area">
-	<input class="form-control-lg bottom_border" type="text" placeholder=""> 
-	<div class="card bottom_border">
-	  <div class="card-body">
-	    This is some text within a card body.
-	  </div>
-	  
-	  <div class="card-body">
-	    This is some text within a card body.
-	  </div>
-	</div>  
-    <button type="button" id="json_btn_validate" class="btn btn-outline-primary">Validate</button>
-    <button type="button" id="json_btn_format" class="btn btn-outline-primary">Format</button>
-    <div class="alert alert-success" role="alert" id="json_validate_status">
-      
-    </div>
+  <div>
+    <div style="float:left;width:80%">
+		<input class="form-control-lg bottom_border text-center"  style="width: 100%;" type="text" placeholder="">
+		<div class="card">
+		  <div class="card-body">
+		    <!-- <h5 class="card-title">Special title treatment</h5> -->
+		    <p class="card-text">
+		    	<pre class="console">
+		    	<code>
+pip install requests_ntlm
+from requests_ntlm import HttpNtlmAuth
+navigator = requests.get(basic_url,auth=HttpNtlmAuth(username, password))
+				<code>		    	
+				</pre>
+		    </p>
+		    <i onclick="myFunction(this)" class="fa fa-thumbs-up"></i> 
+		    <!-- <a href="#" class="btn btn-primary">Card link</a>
+		    <a href="#" class="btn btn-primary">Card link</a> -->
+		  </div>
+		</div>
+
+		<!-- <pre>
+
+		</pre> -->
+	</div>	
+	<div>
+	ssssss
+	</div>
   </div>
   
 </div>
-<script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/jquery-1.5.2.min.js"></script>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script> -->
 <script src="js/bootstrap.min.js"></script>
