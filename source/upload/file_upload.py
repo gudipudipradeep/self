@@ -1,4 +1,4 @@
-from bottle import request, response
+from bottle import request, response, redirect
 from bottle import post, get, put, delete
 import string
 import random
@@ -22,10 +22,12 @@ def zip(src, dst):
             
 
 @get('/')
-def helloworld():
+def redirect_defalut():
     '''Handles name creation'''
-    response.headers['Content-Type'] = 'application/json'
-    return {"Hello World":"Hello World"}
+#     response.headers['Content-Type'] = 'application/json'
+#     return {"Hello World":"Hello World"}
+    return redirect("file_share_util.html")
+
 
 @post("/upload")
 def upload():
