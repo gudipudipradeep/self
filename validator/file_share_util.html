@@ -14,6 +14,7 @@
 
 <link rel="stylesheet" href="css/bootstrap.min.css" />
 <link rel="stylesheet" href="css/json_validate.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
 </head>
 <body>
 <div id="main_node" style="border-right: double;">
@@ -54,20 +55,28 @@
           </ul>
   </nav>
   <div class="container-fluid text-center div-height-text-area">
-  	<h3><span class="badge badge-secondary" id="validator_name">File Share</span></h3>
+  	<h3><span class="badge badge-secondary" id="validator_name"><i class="fa fa-share-square" aria-hidden="true"></i><span>File Share</span></h3>
   	<form id='file-catcher' enctype="multipart/form-data">
 	  	<div class="fileUpload btn btn-primary">
+	  		<i class="fa fa-folder-o" aria-hidden="true"></i>
 	    	<span>Upload Folder</span>
 	    	<input type="file" id="files" name="files[]"   multiple webkitdirectory class="upload" />
 		</div>
 		
 	  	<div class="fileUpload btn btn-primary">
+	  		<i class="fa fa-file-text" aria-hidden="true"></i>
 	    	<span>Single Files</span>
 			<input name="single_file[]" type="file" class="upload" id="single_file" multiple="" />
 		</div>
 			
-		<button id="clear" class="btn  btn-danger" type="reset">Clear</button>
-		<button class="btn  btn-danger" type="submit">Upload</button>
+		<button id="clear" class="btn  btn-danger" type="reset">
+			<i class="fa fa-trash" aria-hidden="true"></i>
+			<span>Clear</span>
+		</button>
+		<button class="btn  btn-danger" type="submit">
+			<i class="fa fa-upload" aria-hidden="true"></i> 
+			<span>Upload</span>
+		</button>
 	</form>	 
 	<div class="alert alert-success" id="file_upload_status">
 	  

@@ -56,8 +56,8 @@ textarea.form-control {
   border-bottom: 1px solid black;
 }
 pre.console {
-    color: #fff;
-    background-color: #000;
+    color: #000;
+    background-color: #f0eff0;
 }
 .navbar {
 	padding: .3rem 1rem;

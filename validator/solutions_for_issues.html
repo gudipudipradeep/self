@@ -4,7 +4,7 @@
 <link rel="icon" href="image/P&G.ico">
 <link rel="stylesheet" href="css/bootstrap.min.css" />
 <link rel="stylesheet" href="css/json_validate.css"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
 	
 </head>
 <body>
@@ -51,24 +51,32 @@
 		<div class="card">
 		  <div class="card-body">
 		    <!-- <h5 class="card-title">Special title treatment</h5> -->
-		    <p class="card-text">
-		    	<pre class="console">
-		    	<code>
+		    	<div style="border:1px solid black;">
+		    			<i class="fa fa-bold" aria-hidden="true"></i>
+		    			<i class="fa fa-underline" aria-hidden="true"></i>
+		    			<i class="fa fa-code" aria-hidden="true"></i>
+		    	</div>
+		    	<div contenteditable="true" style="border:1px solid black;"><br/>
+			    	<pre class="console">
+			    	<code>
 pip install requests_ntlm
 from requests_ntlm import HttpNtlmAuth
 navigator = requests.get(basic_url,auth=HttpNtlmAuth(username, password))
-				<code>		    	
-				</pre>
-		    </p>
-		    <i onclick="myFunction(this)" class="fa fa-thumbs-up"></i> 
-		    <!-- <a href="#" class="btn btn-primary">Card link</a>
-		    <a href="#" class="btn btn-primary">Card link</a> -->
+					</code>		    	
+					</pre>
+					<br/>
+				</div>
+		    <center>
+		    	<span><i class="fa fa-thumbs-up fa-2x"></i></span>
+		    	<span><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></span>
+		    	<span><i class="fa fa-floppy-o fa-2x" aria-hidden="true"></i></span>
+		    	<span><i class="fa fa-comment  fa-2x" aria-hidden="true"></i></span>
+		    	<span><i class="fa fa-trash fa-2x" aria-hidden="true"></i></span>
+		    </center>
+		    
+
 		  </div>
 		</div>
-
-		<!-- <pre>
-
-		</pre> -->
 	</div>	
 	<div>
 	ssssss
@@ -77,9 +85,7 @@ navigator = requests.get(basic_url,auth=HttpNtlmAuth(username, password))
   
 </div>
 <script src="js/jquery-1.5.2.min.js"></script>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script> -->
 <script src="js/bootstrap.min.js"></script>
 <script src="js/json_validate.js"></script>
-</script>
 </body>
 </html>
