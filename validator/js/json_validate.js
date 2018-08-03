@@ -1,6 +1,7 @@
 (function () {
 	//
 	$("#json_validate_status,#file_upload_status").hide();
+	$( "#json_validate_status" ).removeClass("alert-danger").removeClass("alert-success");
 	$('#side_nav').toggle(
 	function() {
 	  $('#body_node').css('left', '0');
@@ -12,13 +13,27 @@
 		$( "#json_validate_status" ).hide();
 		try {
 		  	var json_obj = JSON.parse($('textarea#json_validate').val());
+		  	$( "#json_validate_status" ).removeClass("alert-danger").addClass("alert-success");
 		  	$( "#json_validate_status" ).html( "JSON Validated Successfully!" );
 		  	$( "#json_validate_status" ).show();
 		}
 		catch (err) {
-			$( "#json_validate_status" ).html( err.toString() );
+			var error = err.toString();
+			var error_line_number = Number(error.match(/\d+/)[0]);
+			var error_line_details = "";
+			var lines = $('textarea').val().split('\n');
+			error_line_dec = error_line_number - Number(3);
+			error_line_inc = error_line_number;
+			while (error_line_dec < lines.length) {
+				error_line_details = error_line_details + lines[error_line_dec]+"<br/>"
+				error_line_dec =error_line_dec + 1;
+				if(error_line_dec == error_line_inc){
+					break;
+				}
+			}
+			$( "#json_validate_status" ).html( err.toString()+"<br/>"+error_line_details );
+			$( "#json_validate_status" ).addClass( "alert-danger" );
 			$( "#json_validate_status" ).show();
-			alert(err);
 		}
 	});
 	$("#json_btn_format").click(function(){
