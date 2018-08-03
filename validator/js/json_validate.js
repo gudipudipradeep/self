@@ -26,6 +26,11 @@
 		var format_obj = JSON.parse($('textarea#json_validate').val());
 		$("textarea#json_validate").val(JSON.stringify(format_obj, null, 4));
 	});
+	$("#json_btn_minify").click(function(){
+		$( "#json_validate_status" ).hide();
+		var format_obj = JSON.parse($('textarea#json_validate').val());
+		$("textarea#json_validate").val(JSON.stringify(format_obj));
+	});
 	$("#yaml_textarea").click(function(){
 		$("#validator_name").html( "Validate YAML" );
 	});
