@@ -21,7 +21,7 @@
 			var error = err.toString();
 			var error_line_number = Number(error.match(/\d+/)[0]);
 			var error_line_details = "";
-			var lines = $('textarea').val().split('\n');
+			var lines = $('textarea#json_validate').val().split('\n');
 			error_line_dec = error_line_number - Number(3);
 			error_line_inc = error_line_number;
 			while (error_line_dec < lines.length) {
@@ -37,22 +37,59 @@
 		}
 	});
 	$("#json_btn_format").click(function(){
+		$("#json_btn_validate").click();
 		$( "#json_validate_status" ).hide();
 		var format_obj = JSON.parse($('textarea#json_validate').val());
 		$("textarea#json_validate").val(JSON.stringify(format_obj, null, 4));
 	});
 	$("#json_btn_minify").click(function(){
+		$("#json_btn_validate").click();
 		$( "#json_validate_status" ).hide();
 		var format_obj = JSON.parse($('textarea#json_validate').val());
 		$("textarea#json_validate").val(JSON.stringify(format_obj));
 	});
-	$("#yaml_textarea").click(function(){
-		$("#validator_name").html( "Validate YAML" );
-	});
 	$("#json_textarea").click(function(){
 		$("#validator_name").html( "Validate Json" );
 	});
-	
+	$("#yaml_btn_validate").click(function(){
+		var yaml_data = $('textarea#yaml_validate').val();
+		$.ajax({
+			  type: 'POST',
+			  url: "/yamlvalidate",
+			  data: jQuery.param({"yaml_text": yaml_data}),
+		        success: function (data) {
+		        	if(data.hasOwnProperty("success")){
+		    		  	$( "#yaml_validate_status" ).removeClass("alert-danger").addClass("alert-success");
+		    		  	$( "#yaml_validate_status" ).html( "YAML Validated Successfully!" );
+		    		  	$( "#yaml_validate_status" ).show();
+		    		  }
+		        	if(data.hasOwnProperty("failure")){
+		        		var error = data["failure"];
+		        		var error_line_number = Number(error.match(/\d+/)[0]);
+		        		var error_line_details = "";
+		        		var lines = $('textarea#yaml_validate').val().split('\n');
+		    			error_line_dec = error_line_number - Number(2);
+		    			error_line_inc = error_line_number;
+		    			while (error_line_dec < lines.length) {
+		    				error_line_details = error_line_details + lines[error_line_dec]+"<br/>"
+		    				error_line_dec =error_line_dec + 1;
+		    				if(error_line_dec == error_line_inc){
+		    					break;
+		    				}
+		    			}
+		    			$( "#yaml_validate_status" ).html("YAML Validated ERROR: <br/>"+error_line_details );
+		    			$( "#yaml_validate_status" ).addClass( "alert-danger" );
+		    			$( "#yaml_validate_status" ).show();
+		        	}
+		        },
+		        error: function(e) { 
+		        	alert("Status: " + e.responseText);
+		        },
+		        cache: false,
+		        contentType: false,
+		        processData: false,
+			});
+		});	
 	
 	// File Upload Code Changes
 	var fileList = [];
@@ -155,5 +192,52 @@
 	    return false;
 	});
 
+	//cert generate uploading js
+	var certgenerate = document.getElementById('cert_convert');
+	certgenerate.addEventListener('submit', function (evnt) {
+		
+	  	evnt.preventDefault();
+	  	var form = $("#cert_convert")[0];
+	  	var formData = new FormData(form);
+	  	
+		var single_file = document.getElementById('single_file');
+		
+		if ((single_file.files.length > 0)) {
+			console.log("Files are selected");
+		}else{
+			alert("please select file before upload");
+			return false;
+		}
+		
+
+	
+	    $.ajax({
+	        url: '/upload',
+	        type: 'POST',
+	        enctype: 'multipart/form-data',
+	        xhr: function() {
+	            var myXhr = $.ajaxSettings.xhr();
+	            return myXhr;
+	        },
+	        success: function (data) {
+//	            alert(window.location.hostname+data["Hashcode"]);
+//	            alert(JSON.stringify(data));
+	            $("#remove_a").remove();
+	            $("#file_upload_status").show();
+	            $("#file_upload_status").append("<b id = \"remove_a\"> You can access you are files using this link:  <a href="+data["Hashcode"]+">"+window.location.hostname+data["Hashcode"]+"</a></b>");
+	        },
+	        error: function(e) { 
+	            alert("Status: " + e.responseText);
+	        },
+	        data: formData,
+	        cache: false,
+	        contentType: false,
+	        processData: false,
+	        timeout: 600000,
+	    });
+	    
+	    $('#single_file').val("");
+	    return false;
+	});
   
 })();

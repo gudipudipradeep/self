@@ -7,7 +7,9 @@ import zipfile
 import shutil
 from bottle import static_file 
 from bottle import error
-
+import json
+import sys
+import yaml
 
 def zip(src, dst):
     zf = zipfile.ZipFile("%s.zip" % (dst), "w", zipfile.ZIP_DEFLATED)
@@ -76,6 +78,17 @@ def download_zip(filename):
 
 @post("/yamlvalidate")        
 def yaml_validate():
+    '''Handles name creation'''
+    response.headers['Content-Type'] = 'application/json'
+    try:
+        yaml.load(request.forms.get('yaml_text'))
+        return {"success":"SUCCESS"}
+    except yaml.YAMLError as exc:
+        print(exc)
+        return {"failure":str(exc)}
+
+@post("/convertpfxtopem")        
+def convert_pfx_to_pem():
     '''Handles name creation'''
     response.headers['Content-Type'] = 'application/json'
     return {"Hello World":"Hello World"}
