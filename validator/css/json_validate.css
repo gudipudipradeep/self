@@ -65,3 +65,21 @@ pre.console {
 .list_group_size{
 	padding: 0.35rem 1.25rem;
 }
+.inline-div {
+    background: #f06; 
+    vertical-align: middle; 
+    display:inline-block;
+    width: 40%;
+    height: 40%;
+}
+.encode_decode_size{
+	height: 100% !important;
+}
+.encode_button{
+	width: 10%;
+    height: 40%;
+    display: inline-block;
+}
+.button_style{
+	margin: 2%;
+}

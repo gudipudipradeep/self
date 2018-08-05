@@ -2,15 +2,15 @@
 <html>
 <head>
 <link rel="icon" href="image/P&G.ico">
-<title>Share Files Online</title>
-<meta name = "description" content="Share Files">
-<meta name = "keywords" content="Share Files, Share Files Online" >  
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>validate and format files</title>
+<meta name = "description" content="Validate, Formate and Minfiy JSON File">
+<meta name = "keywords" content="Validate JSON, Formate JSON,Minify JSON" >  
 <meta name= "content-language" content="english">  
-<meta property="og:title" content="Share Files"/>
-<meta property="og:description" content="Share file through Online"/>
-<meta name="robots" content="Share file through Online">
+<meta property="og:title" content="Validate, Formate and Minfiy JSON File"/>
+<meta property="og:description" content="Validate, Formate and Minfiy JSON File"/>
+<meta name="robots" content="Validate, Formate and Minfiy JSON File">
 <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">        
-
 
 <link rel="stylesheet" href="css/bootstrap.min.css" />
 <link rel="stylesheet" href="css/json_validate.css"/>
@@ -20,11 +20,13 @@
 <div id="main_node" style="border-right: double;">
   <!-- style="border-right: double;" -->
 <ul class="list-group">
-  <li class="list-group-item list-group-item-action" style="color: white">Tutorial Republic</li>
+  <li class="list-group-item list-group-item-action" style="color: white">Tools</li>
   <li class="list-group-item list-group-item-action list_group_size" id="json_textarea"><a href="file_share_util.html" class="alert-link" alt="File Share Online">File Share</a></li>
   <li class="list-group-item list-group-item-action list_group_size" id="json_textarea"><a href="validate_format_json_files.html" class="alert-link" alt="Validate JSON File">JSON Validator</a></li>
-  <li class="list-group-item list-group-item-action list_group_size" id="yaml_textarea"><a href="validate_yaml_data.html" class="alert-link" alt="Validate YAML File">YAML Validator</a></li>
-  <li class="list-group-item list-group-item-action list_group_size"><a href="url_encode_decode.html" class="alert-link" alt="URL Encode and Decode">URL Encode / Decode</a></li>ul>
+  <li class="list-group-item list-group-item-action list_group_size" id="yaml_textarea"><a href="validate_format_json_files.html" class="alert-link" alt="Validate YAML File">YAML Validator</a></li>
+  <li class="list-group-item list-group-item-action list_group_size"><a href="#" class="alert-link" alt="URL Encode and Decode">URL Encode</a></li>
+  <li class="list-group-item list-group-item-action list_group_size"><a href="#" class="alert-link" alt="URL Encode and Decode">URL Decode</a></li>
+</ul>
 
 </div>
 <div id="body_node">
@@ -33,12 +35,11 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" id="side_nav">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" href="#">Tutorial Republic</a>
+      <a class="navbar-brand" href="#"><!-- <img class="rounded-circle" src="image/PG.png" alt="Avatar" > --></a>
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
           <ul class="nav justify-content-end">
               <li class="nav-item"><a href="home.html" class="nav-link text-white">Home</a></li>
-              <li class="nav-item"><a href="home.html" class="nav-link text-white">About</a></li>
               <li class="nav-item"><a href="home.html" class="nav-link text-white">Contact</a></li>
               <li class="dropdown nav-item">
                       <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle text-white" role="button" aria-haspopup="true" aria-expanded="false"> Tutorials</a>
@@ -53,48 +54,20 @@
           </ul>
   </nav>
   <div class="container-fluid text-center div-height-text-area">
-  	<h3><span class="badge badge-secondary" id="validator_name"><i class="fa fa-share-square" aria-hidden="true"></i><span>File Share</span></h3>
-  	<form id='file-catcher' enctype="multipart/form-data">
-	  	<div class="fileUpload btn btn-primary">
-	  		<i class="fa fa-folder-o" aria-hidden="true"></i>
-	    	<span>Upload Folder</span>
-	    	<input type="file" id="files" name="files[]"   multiple webkitdirectory class="upload" />
-		</div>
-		
-	  	<div class="fileUpload btn btn-primary">
-	  		<i class="fa fa-file-text" aria-hidden="true"></i>
-	    	<span>Single Files</span>
-			<input name="single_file[]" type="file" class="upload" id="single_file" multiple="" />
-		</div>
-			
-		<button id="clear" class="btn  btn-danger" type="reset">
-			<i class="fa fa-trash" aria-hidden="true"></i>
-			<span>Clear</span>
-		</button>
-		<button class="btn  btn-danger" type="submit">
-			<i class="fa fa-upload" aria-hidden="true"></i> 
-			<span>Upload</span>
-		</button>
-	</form>	 
-	<div class="alert alert-success" id="file_upload_status">
-	  
-	</div>
-	<div class="table-responsive">          
-	  <table class="table" id="file_content_details">
-	    <thead>
-	      <tr>
-	        <th>File Names</th>
-	        <th>File Size</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-	      
-	    </tbody>
-	  </table>
-	</div>
-	<div id="output"></div> 
-	<br/>
-    
+    <h3><span class="badge badge-secondary">Encode & Decode</span></h3>
+     <span class="inline-div">
+	 	<textarea class="form-control encode_decode_size"  id="yaml_validate"></textarea>
+	 </span>
+	<span class="encode_button">
+	    <button type="button" class="btn btn-outline-primary button_style">Encode</button>
+	    <button type="button" class="btn btn-outline-primary button_style">Decode</button>
+	</span>
+     <span class="inline-div">
+	 	<textarea class="form-control encode_decode_size"  id="yaml_validate"></textarea>
+	 </span>
+    <div class="alert" role="alert" id="json_validate_status">
+      
+    </div>
   </div>
   
 </div>
