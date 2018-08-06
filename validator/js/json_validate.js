@@ -1,4 +1,16 @@
 (function () {
+	//url encode and decode
+	$("#encode").click(function(){
+		var encode_data = $("textarea#encode_text_area").val();
+		alert(encode_data);
+		var output = encodeURIComponent(encode_data);
+		$("textarea#decode_text_area").val(output);
+	});
+	$("#decode").click(function(){
+		var decode_data = $("textarea#decode_text_area").val();
+		var output = decodeURIComponent(decode_data);
+		$("textarea#encode_text_area").val(output);
+	});	
 	//
 	$("#json_validate_status,#file_upload_status").hide();
 	$( "#json_validate_status" ).removeClass("alert-danger").removeClass("alert-success");
@@ -239,5 +251,5 @@
 	    $('#single_file').val("");
 	    return false;
 	});
-  
+ 
 })();
