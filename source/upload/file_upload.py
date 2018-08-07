@@ -28,7 +28,7 @@ def redirect_defalut():
     '''Handles name creation'''
 #     response.headers['Content-Type'] = 'application/json'
 #     return {"Hello World":"Hello World"}
-    return redirect("file_share_util.html")
+    return static_file("file_share_util.html", root=request.app.config['web_files'])
 
 
 @post("/upload")
