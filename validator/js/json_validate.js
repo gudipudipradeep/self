@@ -1,5 +1,12 @@
 (function () {
 	
+	$("#clear").click(function () {
+		$("#file_upload_status").hide();
+		$("#file_content_details").find("tr:not(:first)").remove();
+		$('#files').val("");
+		fileList = []
+	});
+	
 	//cert convertert
 	$( "#cert_convert" ).submit(function( event ) {
 		var form = $("#cert_convert")[0];
@@ -187,15 +194,6 @@
 	        fileList.push(files[i]);
 	    }
 	}
-	
-	var control = $("#control");
-	
-	$("#clear").click(function () {
-		$("#file_upload_status").hide();
-		$("#file_content_details").find("tr:not(:first)").remove();
-		$('#files').val("");
-		fileList = []
-	});
 	
 	//file uploading js
 	var fileCatcher = document.getElementById('file-catcher');
