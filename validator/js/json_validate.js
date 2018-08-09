@@ -1,4 +1,48 @@
 (function () {
+	
+	//cert convertert
+	$( "#cert_convert" ).submit(function( event ) {
+		var form = $("#cert_convert")[0];
+	  	var formData = new FormData(form);
+	  	
+		var single_file = document.getElementById('single_file');
+		
+		if ((single_file.files.length > 0)) {
+			console.log("Files are selected");
+		}else{
+			alert("please select file before upload");
+			return false;
+		}
+		
+		$.ajax({
+	        url: '/convertpfxtopem',
+	        type: 'POST',
+	        enctype: 'multipart/form-data',
+	        xhr: function() {
+	            var myXhr = $.ajaxSettings.xhr();
+	            return myXhr;
+	        },
+	        success: function (data) {
+//	            alert(window.location.hostname+data["Hashcode"]);
+//	            alert(JSON.stringify(data));
+	            $("#remove_a").remove();
+	            $("#file_upload_status").show();
+	            $("#file_upload_status").append("<b id = \"remove_a\"> You can access you are files using this link:  <a href="+data["Hashcode"]+">"+window.location.hostname+data["Hashcode"]+"</a></b>");
+	        },
+	        error: function(e) { 
+	            alert("Status: " + e.responseText);
+	        },
+	        data: formData,
+	        cache: false,
+	        contentType: false,
+	        processData: false,
+	        timeout: 600000,
+	    });
+		$('#single_file').val("");
+	    	
+		event.preventDefault();
+	});
+	
 	//url encode and decode
 	$("#encode").click(function(){
 		var encode_data = $("textarea#encode_text_area").val();
@@ -153,7 +197,6 @@
 		fileList = []
 	});
 	
-
 	//file uploading js
 	var fileCatcher = document.getElementById('file-catcher');
 	fileCatcher.addEventListener('submit', function (evnt) {
@@ -171,9 +214,7 @@
 			alert("please select file before upload");
 			return false;
 		}
-		
 
-	
 	    $.ajax({
 	        url: '/upload',
 	        type: 'POST',
@@ -202,54 +243,5 @@
 	    $('#single_file').val("");
 		$('#files').val("");
 	    return false;
-	});
-
-	//cert generate uploading js
-	var certgenerate = document.getElementById('cert_convert');
-	certgenerate.addEventListener('submit', function (evnt) {
-		
-	  	evnt.preventDefault();
-	  	var form = $("#cert_convert")[0];
-	  	var formData = new FormData(form);
-	  	
-		var single_file = document.getElementById('single_file');
-		
-		if ((single_file.files.length > 0)) {
-			console.log("Files are selected");
-		}else{
-			alert("please select file before upload");
-			return false;
-		}
-		
-
-	
-	    $.ajax({
-	        url: '/upload',
-	        type: 'POST',
-	        enctype: 'multipart/form-data',
-	        xhr: function() {
-	            var myXhr = $.ajaxSettings.xhr();
-	            return myXhr;
-	        },
-	        success: function (data) {
-//	            alert(window.location.hostname+data["Hashcode"]);
-//	            alert(JSON.stringify(data));
-	            $("#remove_a").remove();
-	            $("#file_upload_status").show();
-	            $("#file_upload_status").append("<b id = \"remove_a\"> You can access you are files using this link:  <a href="+data["Hashcode"]+">"+window.location.hostname+data["Hashcode"]+"</a></b>");
-	        },
-	        error: function(e) { 
-	            alert("Status: " + e.responseText);
-	        },
-	        data: formData,
-	        cache: false,
-	        contentType: false,
-	        processData: false,
-	        timeout: 600000,
-	    });
-	    
-	    $('#single_file').val("");
-	    return false;
-	});
- 
+	});	
 })();
