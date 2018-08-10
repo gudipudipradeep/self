@@ -83,3 +83,7 @@ pre.console {
 .button_style{
 	margin: 2%;
 }
+#chose_container > a {
+	padding: 0px 4px;
+	border-right: 1px solid black;
+}
