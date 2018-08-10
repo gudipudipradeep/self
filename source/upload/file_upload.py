@@ -10,7 +10,6 @@ from bottle import error
 import json
 import sys
 import yaml
-import util
 from upload import util
 
 def zip(src, dst):
