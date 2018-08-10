@@ -11,6 +11,7 @@ import json
 import sys
 import yaml
 import util
+from upload import util
 
 def zip(src, dst):
     zf = zipfile.ZipFile("%s.zip" % (dst), "w", zipfile.ZIP_DEFLATED)
