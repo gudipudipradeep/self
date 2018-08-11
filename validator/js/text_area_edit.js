@@ -1,4 +1,5 @@
 (function () {
+	$("#chose_container").hide();
 	$("#pencil").click(function (e) {
 		e.preventDefault();
 		$("#chose_container").show();
@@ -19,6 +20,5 @@
 		edited_text = edited_text.replace(/<div>/g, "<p>").replace("</div>", "</p>").replace(/<br>/g, "</p>");
 		$( "#main_container").empty();
 		$( "#main_container").append(edited_text);		
-
-	});	
+	});
 })();

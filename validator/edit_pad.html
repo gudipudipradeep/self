@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="css/bs.css">
+<link rel="stylesheet" href="css/sn.css">
+
+<div class="container">
+	<textarea name="" id="sn" cols="30" rows="10"></textarea>
+	
+	<button id="caret">First Name, Caret</button>
+</div>
+
+<script src="edit_js/jquery.js"></script>
+<script src="edit_js/bs.js"></script>
+<script src="edit_js/sn.js"></script>
+
+<script>
+
+	$('#sn').summernote();
+	var lastCaretPos = 0;
+	var parentNode;
+	var range;
+	var selection;
+
+	$('.note-editable').on('keyup mouseup',function (e){
+
+		selection = window.getSelection();
+		range = selection.getRangeAt(0);
+		parentNode = range.commonAncestorContainer.parentNode;
+	});
+
+	$('#caret').click(function (e){
+			
+		if($(parentNode).parents().is('.note-editable') || $(parentNode).is('.note-editable') ){
+        	var span = document.createElement('span');	    
+	        span.setAttribute('style','font-style:italic');
+	    	span.innerHTML="${firstName}";
+			
+			range.deleteContents();        
+	        range.insertNode(span);  
+	        //cursor at the last with this
+	        range.collapse(false);
+	        selection.removeAllRanges();
+			selection.addRange(range);
+
+		}else{
+			return;
+		}
+	});
+
+</script>
+
