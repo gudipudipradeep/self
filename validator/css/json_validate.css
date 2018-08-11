@@ -87,3 +87,11 @@ pre.console {
 	padding: 0px 4px;
 	border-right: 1px solid black;
 }
+.navbar-toggle {
+	padding-top: 6px;
+	padding-bottom: 6px;
+	margin-bottom: 2px;
+	margin-top: 2px;
+}
+.navbar-nav > li > a {padding-top:5px !important; padding-bottom:5px !important;}
+.navbar {min-height:42px !important}
