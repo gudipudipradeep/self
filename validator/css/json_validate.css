@@ -95,3 +95,27 @@ pre.console {
 }
 .navbar-nav > li > a {padding-top:5px !important; padding-bottom:5px !important;}
 .navbar {min-height:42px !important}
+.padding-questions{
+	font-size:25px !important;
+	margin-left: 8px;
+	margin-right: 8px;
+}
+.label_span {
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+.label-python {
+    background-color: #777;
+}
+.count_thumbup{
+	margin-left: 9px;
+	margin-right: 9px;
+}
