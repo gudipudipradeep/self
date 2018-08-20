@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="icon" href="image/P&G.ico"/>
+<link rel="icon" href="image/P&G.ico">
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1252"/>
-<title>Encode and Decode URL Data</title>
-<meta name = "description" content="Send the data through online  will be in encoded format for the URL. If we want to see the actual data we need to decode. Same way it we need send the data through internet we should encoded in URL content."/>
-<meta name = "keywords" content="Encode URL Data, Decode URL Data" />
-<meta name= "content-language" content="english"/>
-<meta property="og:title" content="Encode and Decode URL"/>
-<meta property="og:description" content="Send the data through online  will be in encoded format for the URL. If we want to see the actual data we need to decode. Same way it we need send the data through internet we should encoded in URL content."/>
+<title>JSON validate and format</title>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="http://fileraft.com"/>
+<meta name = "description" content="Check the Syntax of the JSON file and can change the format, compress, uncompress, minify and unminify structure of the JSON file"/>
+<meta name = "keywords" content="Validate JSON, Formate JSON, Minify JSON" />  
+<meta name= "content-language" content="english"/>  
+<meta property="og:title" content="Validate, Formate and Minfiy JSON File"/>
+<meta property="og:description" content="Check the Syntax of the JSON file and can change the format, compress, uncompress, minify and unminify structure of the JSON file"/>
 <meta name="robots" content="index"/>
-<meta name="google-site-verification" content="eCqzRV-WN4CH-GGItXVAyWHNRxUEEFnOx4Th26dmgVs" />
+<meta name="google-site-verification" content="eCqzRV-WN4CH-GGItXVAyWHNRxUEEFnOx4Th26dmgVs" />  
 <script>
   (adsbygoogle = window.adsbygoogle || []).push({
     google_ad_client: "ca-pub-8530760185259195",
@@ -35,13 +37,13 @@
   <!-- style="border-right: double;" -->
 <ul class="list-group">
   <li class="list-group-item list-group-item-action" style="color: white">Tools</li>
-  <li class="list-group-item list-group-item-action list_group_size" id="json_textarea"><a rel="canonical"  href="file_share_util.html" class="alert-link" alt="File Share Online">File Share</a></li>
-  <li class="list-group-item list-group-item-action list_group_size" id="json_textarea"><a rel="canonical"  href="http://www.fileraft.com/cert_generator.html" class="alert-link" alt="Convert PFX to PEM">Convert Pfx to PEM</a></li>
-  <li class="list-group-item list-group-item-action list_group_size" id="json_textarea"><a rel="canonical" href="http://www.fileraft.com/validate_format_json_files.html" class="alert-link" alt="Validate JSON File">JSON Validator</a></li>
+  <li class="list-group-item list-group-item-action list_group_size" id="json_textarea"><a rel="canonical" href="http://www.fileraft.com/file_share_util.html" class="alert-link" alt="File Share Online">File Share</a></li>
+  <li class="list-group-item list-group-item-action list_group_size" id="json_textarea"><a rel="canonical"  href="http://www.fileraft.com/pfx-to-pem-generator.html" class="alert-link" alt="Convert PFX to PEM">Convert Pfx to PEM</a></li>
+  <li class="list-group-item list-group-item-action list_group_size" id="json_textarea"><a href="#" class="alert-link" alt="Validate JSON File">JSON Validator</a></li>
   <li class="list-group-item list-group-item-action list_group_size" id="yaml_textarea"><a rel="canonical" href="http://www.fileraft.com/yaml-validator.html" class="alert-link" alt="Validate YAML File">YAML Validator</a></li>
-  <li class="list-group-item list-group-item-action list_group_size"><a rel="canonical" href="#" class="alert-link" alt="URL Encode and Decode">URL Encode / Decode</a></li>
-  <li class="list-group-item list-group-item-action list_group_size" style="display: none;"><a rel="canonical" href="http://www.fileraft.com/embedded_python.html" class="alert-link" alt="URL Encode and Decode">Embedded Python</a></li>
-  <li class="list-group-item list-group-item-action list_group_size"><a rel="canonical" href="http://www.fileraft.com/list_of_solutions.html" class="alert-link" alt="Python Articles">Python Articles</a></li>  
+  <li class="list-group-item list-group-item-action list_group_size"><a rel="canonical" href="http://www.fileraft.com/url-encode-decode.html" class="alert-link" alt="URL Encode and Decode">URL Encode / Decode</a></li>
+  <li class="list-group-item list-group-item-action list_group_size" style="display: none;"><a rel="canonical" href="http://www.fileraft.com/embedded-python.html" class="alert-link" alt="URL Encode and Decode">Embedded Python</a></li>
+  <li class="list-group-item list-group-item-action list_group_size"><a rel="canonical" href="http://www.fileraft.com/list_of_solutions.html" class="alert-link" alt="Python Articles">Python Articles</a></li>
 </ul>
 
 </div>
@@ -70,26 +72,22 @@
           </ul>
   </nav>
   <div class="container-fluid text-center div-height-text-area">
-    <h1><span class="badge badge-secondary">Encode & Decode URL</span></h1>
-     <span class="inline-div">
-	 	<textarea class="form-control encode_decode_size"  id="encode_text_area"></textarea>
-	 </span>
-	<span class="encode_button">
-	    <button type="button" id="encode" class="btn btn-outline-primary button_style">Encode</button>
-	    <button type="button" id="decode" class="btn btn-outline-primary button_style">Decode</button>
-	</span>
-     <span class="inline-div">
-	 	<textarea class="form-control encode_decode_size"  id="decode_text_area"></textarea>
-	 </span>
+    <h1><span class="badge badge-secondary" id="validator_name">Validate Json</span></h1>
+    <textarea class="form-control"  id="json_validate"></textarea>
+    <br/>
+    <button type="button" id="json_btn_validate" class="btn btn-outline-primary">Validate<i class="fa fa-spinner fa-spin" style="font-size:24px"></i></button>
+    <button type="button" id="json_btn_format" class="btn btn-outline-primary">Format</button>
+    <button type="button" id="json_btn_minify" class="btn btn-outline-primary">Minify</button>
     <div class="alert" role="alert" id="json_validate_status">
       
     </div>
   </div>
   
 </div>
-<script src="js/jquery-1.5.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.5.2.min.js"></script>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script> -->
-<script src="js/bootstrap.min.js"></script>
-<script src="js/json_validate.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/json_validate.js"></script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </body>
 </html>
