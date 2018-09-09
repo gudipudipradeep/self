@@ -2,8 +2,6 @@
 	$("#pencil").click(function (e) {
 		$("#edit_tools").show();
 		$(".note-editable").attr("contenteditable","true");
-		
-
 	});
 	
 	$("#floppy").click(function () {
@@ -11,5 +9,8 @@
 		$(".note-editable").attr("contenteditable","flase");
 	});
 	$("#edit_tools").hide();
-	$(".note-editable").attr("contenteditable","flase");	
+	$(".note-editable").attr("contenteditable","flase");
+	$("#savehtml").click(function () {
+		alert($(".note-editable").html());
+	});
 })();
