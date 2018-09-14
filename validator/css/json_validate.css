@@ -122,3 +122,9 @@ pre.console {
 .navbar-inverse{
 	margin-bottom: 0px;
 }
+.remove_padding{
+	margin-bottom: 0px;
+	font-family: Arial Black; 
+	font-size: 17px;
+	font-weight: bold;
+}
