@@ -48,7 +48,17 @@
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://www.fileraft.com/validate_yaml_data.html</loc>
+  <loc>http://www.fileraft.com/yaml-validator.html.html</loc>
+  <lastmod>2018-08-20T06:37:29+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.fileraft.com/replace-file-copy-python.html</loc>
+  <lastmod>2018-08-20T06:37:29+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.fileraft.com/send-signal-ec2-instance.html</loc>
   <lastmod>2018-08-20T06:37:29+00:00</lastmod>
   <priority>0.64</priority>
 </url>

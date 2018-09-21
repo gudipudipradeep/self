@@ -10,7 +10,25 @@
 	});
 	$("#edit_tools").hide();
 	$(".note-editable").attr("contenteditable","flase");
-	$("#savehtml").click(function () {
-		alert($(".note-editable").html());
+	
+	$("#savehtml").click(function(){
+		var url_name_file_name =  $("#url_name_file_name").val();
+		var data_article =  $(".note-editable").html()
+		
+		var save_request = $.ajax({
+			  url: "/create-article",
+			  method: "POST",
+			  data: { "url_name" : url_name_file_name, "article_data": data_article  }
+			});
+			 
+		save_request.done(function( msg ) {
+		  $( "#log" ).html( msg );
+		});
+		 
+		save_request.fail(function( jqXHR, textStatus ) {
+		  alert( "Request failed: " + textStatus );
+		});
+		
 	});
+	
 })();
