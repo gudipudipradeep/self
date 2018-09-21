@@ -40,7 +40,7 @@
   <li class="list-group-item list-group-item-action list_group_size" id="json_textarea"><a rel="canonical"  href="http://www.fileraft.com/pfx-to-pem-generator.html" class="alert-link" alt="Convert PFX to PEM">Convert Pfx to PEM</a></li>
   <li class="list-group-item list-group-item-action list_group_size" id="json_textarea"><a rel="canonical" href="http://www.fileraft.com/validate-json.html" class="alert-link" alt="Validate JSON File">JSON Validator</a></li>
   <li class="list-group-item list-group-item-action list_group_size" id="yaml_textarea"><a rel="canonical" href="http://www.fileraft.com/yaml-validator.html" class="alert-link" alt="Validate YAML File">YAML Validator</a></li>
-  <li class="list-group-item list-group-item-action list_group_size"><a rel="canonical" href="#" class="alert-link" alt="URL Encode and Decode">URL Encode / Decode</a></li>
+  <li class="list-group-item list-group-item-action list_group_size"><a rel="canonical" href="#" class="alert-link" alt="URL Encode and Decode">Encode / Decode</a></li>
   <li class="list-group-item list-group-item-action list_group_size" style="display: none;"><a rel="canonical" href="http://www.fileraft.com/embedded-python.html" class="alert-link" alt="URL Encode and Decode">Embedded Python</a></li>
   <li class="list-group-item list-group-item-action list_group_size"><a rel="canonical" href="http://www.fileraft.com/list_of_solutions.html" class="alert-link" alt="Python Articles">Python Articles</a></li>  
 </ul>
@@ -76,6 +76,12 @@
 	 	<textarea class="form-control encode_decode_size"  id="encode_text_area"></textarea>
 	 </span>
 	<span class="encode_button">
+		<select class="custom-select">
+		  <option selected>Select Type Of Encoding / Decoding</option>
+		  <option value="utf">UTF</option>
+		  <option value="base64">Base64</option>
+		  <option value="3">Three</option>
+		</select>
 	    <button type="button" id="encode" class="btn btn-outline-primary button_style">Encode</button>
 	    <button type="button" id="decode" class="btn btn-outline-primary button_style">Decode</button>
 	</span>

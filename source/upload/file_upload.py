@@ -117,7 +117,24 @@ def convert_pfx_to_pem():
     response.headers['Content-Type'] = 'application/json'
     return {"Hashcode": "/download/"+zip_create_name}      
 
+@post("/create-article")
+def save_article():
+    current_file  = __file__
+    current_dir = os.path.dirname(current_file)
+    root_dir = os.path.abspath(os.path.join(os.path.join(current_dir, os.pardir),  os.pardir))
+    web_dir = os.path.join(root_dir, "validator")
+    # featching the data from article
+    url_name = request.forms.get('url_name')
+    article_data = request.forms.get('article_data')
+    
+    #load the template
+    
+    #Save the template
 
+    
+    return {"file-status":"bb"}
+    
+    
 @error(404)
 def error404(error):
     return 'Nothing here, sorry'
