@@ -83,17 +83,9 @@
 		catch (err) {
 			var error = err.toString();
 			var error_line_number = Number(error.match(/\d+/)[0]);
-			var error_line_details = "";
 			var lines = $('textarea#json_validate').val().split('\n');
-			error_line_dec = error_line_number - Number(3);
-			error_line_inc = error_line_number;
-			while (error_line_dec < lines.length) {
-				error_line_details = error_line_details + lines[error_line_dec]+"<br/>"
-				error_line_dec =error_line_dec + 1;
-				if(error_line_dec == error_line_inc){
-					break;
-				}
-			}
+			var error_line_details = lines[error_line_number - 1];
+
 			$( "#json_validate_status" ).html( err.toString()+"<br/>"+error_line_details );
 			$( "#json_validate_status" ).addClass( "alert-danger" );
 			$( "#json_validate_status" ).show();
