@@ -1,6 +1,6 @@
 import OpenSSL.crypto
 import os
-
+import shutil
 
 def cert_convert(pfx_file, pfx_pass, cert_gen_path):
     #Cert Convert
@@ -30,7 +30,13 @@ def jinja_render_file(file_location, existing_file_name, new_file_name, kwargs):
     loader = FileSystemLoader(file_location)
     env = Environment(loader=loader)
     template = env.get_template(existing_file_name)
-    with open(file_location+"\\"+new_file_name,"w") as file_data:
+    
+    if os.path.isfile(file_location+"\\"+new_file_name):
+        shutil.rmtree(file_location+"\\"+new_file_name)
+        pass
+    
+    with open(file_location+"\\"+new_file_name, "w") as file_data:
         file_data.write(template.render(**kwargs))
     print("New article location {0}".format(file_location+"\\"+new_file_name))
+    
     return file_location+"\\"+new_file_name
