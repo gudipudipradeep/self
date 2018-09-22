@@ -1,6 +1,8 @@
+# -*- coding: utf-8 -*-
 import OpenSSL.crypto
 import os
 import shutil
+import codecs
 
 def cert_convert(pfx_file, pfx_pass, cert_gen_path):
     #Cert Convert
@@ -32,11 +34,16 @@ def jinja_render_file(file_location, existing_file_name, new_file_name, kwargs):
     template = env.get_template(existing_file_name)
     
     if os.path.isfile(file_location+"\\"+new_file_name):
-        shutil.rmtree(file_location+"\\"+new_file_name)
-        pass
+        os.remove(file_location+"\\"+new_file_name)
     
     with open(file_location+"\\"+new_file_name, "w") as file_data:
         file_data.write(template.render(**kwargs))
     print("New article location {0}".format(file_location+"\\"+new_file_name))
     
     return file_location+"\\"+new_file_name
+
+def encoding(text_data, encode):
+    return codecs.encode(text_data, encode)
+
+def decoding(text_data, encode):
+    return codecs.decode(text_data, encode)

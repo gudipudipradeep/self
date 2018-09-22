@@ -1,4 +1,4 @@
-from bottle import request, response, redirect
+from bottle import request, response, redirect, url
 from bottle import post, get, put, delete
 import string
 import random
@@ -126,13 +126,23 @@ def save_article():
     # featching the data from article
     url_name = request.forms.get('url_name')
     article_data = request.forms.get('article_data')
+    title = request.forms.get('title')
+    description = request.forms.get('description')
+    keywords = request.forms.get('keywords')
+
+    #New Web Form
+    new_post = url_name.replace(" ", "-")+".html"
     
     #load the template
+    util.jinja_render_file(web_dir, "template_render.html", new_post, {"title": title, "content": article_data, "description": description, "keywords": keywords})
     
     #Save the template
-
+    from fabric.operations import local
+    git_commit_path = local("git add -A && git commit -m \"Added New Article\"")
+    if git_commit_path.succeeded:
+        print(git_commit_path.return_code)
     
-    return {"file-status":"bb"}
+    return redirect("file_share_util.html")
     
     
 @error(404)
