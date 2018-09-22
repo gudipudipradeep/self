@@ -3,14 +3,14 @@
 <head>
 <link rel="icon" href="image/P&G.ico">
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1252"/>
-<title>Embedded Python application with other application</title>
+<title>{{title}}</title>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="http://fileraft.com"/>
-<meta name = "description" content="Integrating python application with other language application"/>
-<meta name = "keywords" content="Embedded Python application with other application, Integrating python application with other language application" />  
+<meta name = "description" content="{{description}}"/>
+<meta name = "keywords" content="{{keywords}}" />  
 <meta name= "content-language" content="english"/>  
-<meta property="og:title" content="Embedded Python application with other application"/>
-<meta property="og:description" content="Integrating python application with other language application"/>
+<meta property="og:title" content="{{description}}"/>
+<meta property="og:description" content="{{keywords}}"/>
 <meta name="robots" content="index"/>
 <meta name="google-site-verification" content="eCqzRV-WN4CH-GGItXVAyWHNRxUEEFnOx4Th26dmgVs" />  
 <script>
@@ -71,28 +71,10 @@
 
   <div>
     <div style="float:left;width:80%">
-		<h1 style="text-align: center;">Embedded Python application with other application</h1>
+		<h1 style="text-align: center;">{{title}}</h1>
 		<div class="card">
 		  <div class="card-body">
-		    <!-- <h5 class="card-title">Special title treatment</h5> -->
-		    	<textarea id="sn">
-<p>Download python from <a href="https://www.python.org/downloads/" target="_blank">python.org</a> and install, while installation please note down the directory.					</p>
-<pre class="console"><code>C:/Python27/</code></pre>
-<p>After installation of python, Identify the lib and include folders in the installed directory. 					</p>
-<pre class="console">C:\Python27\include<br>C:\<code>Python27</code>\libs</pre>
-"Microsoft Visual C++ Compiler Package for Python 2.7" is installed while installing the&nbsp; Python.<br><p></p>
-<p>You can able to find the "Microsoft Visual C++ Compiler Package for Python 2.7" in our USER profile AppData folder. Click the "Visual C++ Compiler Package for Python 2.7" icon. and run cl.exe command to check the C/C++ compiler you can get the following output. 								 	</p>
-<pre class="console">C:\windows\system32&gt;cl.exe<br>Microsoft (R) C/C++ Optimizing Compiler Version 15.00.30729.01 for x64<br>Copyright (C) Microsoft Corporation.  All rights reserved.<br><br>usage: cl [ option... ] filename... [ /link linkoption... ]</pre>
-<span style="font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace;">Now we will integrate Visual C application with the python application. using small snippet code. Save the code with sample.c<br></span><p></p>
-<pre class="console">#include &lt;stdio.h&gt;<br>#include &lt;conio.h&gt;<br>#include &lt;Python.h&gt;<br><br>int main()<br>{<br>&nbsp;&nbsp; &nbsp;PyObject* pInt;<br>&nbsp;&nbsp; &nbsp;Py_Initialize();<br>&nbsp;&nbsp; &nbsp;PyRun_SimpleString("print('Hello World from Embedded Python!!!')");<br>&nbsp;&nbsp; &nbsp;Py_Finalize();<br>&nbsp;&nbsp; &nbsp;printf("\nPress any key to exit...\n");<br>&nbsp;&nbsp; &nbsp;if(!_getch()) _getch();<br>&nbsp;&nbsp; &nbsp;return 0;<br>}<br></pre>
-<p><span style="font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace;">For compilation we need Python.h header file. those file location path we already noted. Run the below command with the substitution of those file locations.<br></span></p>
-<p><span style="font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace;"> </span></p>
-<pre class="console">cl -I "\Python27\include" simple.c /link /LIBPATH:"C:\Python27\libs"<br><span style="text-decoration: underline;"><span style="font-weight: bold;">Output:</span><br></span>Microsoft (R) C/C++ Optimizing Compiler Version 15.00.30729.01 for x64<br>Copyright (C) Microsoft Corporation.&nbsp; All rights reserved.<br><br>simple.c<br>Microsoft (R) Incremental Linker Version 9.00.30729.01<br>Copyright (C) Microsoft Corporation.&nbsp; All rights reserved.<br><br>/out:simple.exe<br>/LIBPATH:C:\Python27\libs<br>simple.obj<br></pre>
-<p><span style="font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace;">After compilation, it will generate the simple.exe file. run this file it will execute the python code.</span></p>
-<pre class="console">simple.exe<br><span style="font-weight: bold;"><span style="text-decoration: underline;">Output:</span></span><br>Hello World from Embedded Python!!!<br>Press any key to exit...</pre>
-<p><br></p>
-<p></p>
-				</textarea>
+		    	<textarea id="sn">{{content}}</textarea>
 		    <center>
 		    	<a id="thumbs" href="#"><span><i class="fa fa-thumbs-up fa-2x"></i></span></a>
 		    	<a id="pencil" href="#"><span><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></span></a>
