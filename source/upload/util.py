@@ -23,3 +23,14 @@ def cert_convert(pfx_file, pfx_pass, cert_gen_path):
                 ca_certificate.write(OpenSSL.crypto.dump_certificate(OpenSSL.crypto.FILETYPE_PEM, cert))
                     
     return cert_gen_path
+
+def jinja_render_file(file_location, existing_file_name, new_file_name, kwargs):
+    from jinja2 import Environment, PackageLoader
+    from jinja2 import FileSystemLoader, Environment
+    loader = FileSystemLoader(file_location)
+    env = Environment(loader=loader)
+    template = env.get_template(existing_file_name)
+    with open(file_location+"\\"+new_file_name,"w") as file_data:
+        file_data.write(template.render(**kwargs))
+    print("New article location {0}".format(file_location+"\\"+new_file_name))
+    return file_location+"\\"+new_file_name
