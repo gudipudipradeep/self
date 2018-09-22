@@ -128,3 +128,6 @@ pre.console {
 	font-size: 17px;
 	font-weight: bold;
 }
+.align_left{
+	float:left;
+}
