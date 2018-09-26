@@ -148,3 +148,15 @@ def save_article():
 @error(404)
 def error404(error):
     return 'Nothing here, sorry'
+
+@post("/encode-decode")
+def encode_decode():
+    # type and get the data for encodeing or decoding
+    encoding_type = request.forms.get('encoding_type')
+    type_of_selection = request.forms.get('type')    
+    encode_data = request.forms.get('encode')
+    decode_data = request.forms.get('decode')
+    if type_of_selection == "encode":
+        return {"data": encoding(util.encode_data, encoding_type)}
+    elif type_of_selection == "decode":
+        return {"data": decoding(util.encode_data, decode_data)}
