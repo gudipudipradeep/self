@@ -53,14 +53,29 @@
 	//url encode and decode
 	$("#encode").click(function(){
 		var encode_data = $("textarea#encode_text_area").val();
-		alert(encode_data);
-		var output = encodeURIComponent(encode_data);
-		$("textarea#decode_text_area").val(output);
+		var encode_type = $("#encode_type").val();
+		if(encode_type == "select"){
+			alert("Please Select Encode Type");
+			return false;
+		}		
+	  // Send the data using post
+	    var posting = $.post( "/encode-decode", { "type": "encode", "encode": encode_data, "encoding_type": encode_type } );
+	    posting.done(function( data ) {
+		   $("textarea#decode_text_area").val(data["content"]);
+	    });
 	});
-	$("#decode").click(function(){
-		var decode_data = $("textarea#decode_text_area").val();
-		var output = decodeURIComponent(decode_data);
-		$("textarea#encode_text_area").val(output);
+	$("#decode").click(function(){		
+		var encode_type = $("#encode_type").val();
+		if(encode_type == "select"){
+			alert("Please Select Decode Type");
+			return false;
+		}
+		var encode_data = $("textarea#decode_text_area").val();
+	  // Send the data using post
+	    var posting = $.post( "/encode-decode", { "type": "decode", "decode": encode_data, "encoding_type": encode_type } );
+	    posting.done(function( data ) {
+		   $("textarea#encode_text_area").val(data["content"]);
+	    });   
 	});	
 	//
 	$("#json_validate_status,#file_upload_status").hide();
