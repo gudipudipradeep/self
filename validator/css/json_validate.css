@@ -124,8 +124,6 @@ pre.console {
 }
 .remove_padding{
 	margin-bottom: 0px;
-	font-family: Arial Black; 
-	font-size: 17px;
 	font-weight: bold;
 }
 .align_left{
@@ -140,4 +138,13 @@ footer {
 }
 .span_padding{
 	padding: 3px;
+}
+.address_css{
+	-ms-flex: 0 0 33.333333%;
+	flex: 0 0 33.333333%;
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;	
 }
