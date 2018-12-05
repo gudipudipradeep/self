@@ -43,7 +43,14 @@ def jinja_render_file(file_location, existing_file_name, new_file_name, kwargs):
     return file_location+"\\"+new_file_name
 
 def encoding(text_data, encode):
-    return codecs.encode(text_data, encode)
+    if encode == "ascii":
+        return ord(text_data)
+    else:
+        return codecs.encode(text_data, encode)
 
 def decoding(text_data, encode):
-    return codecs.decode(text_data, encode)
+    if encode == "ascii":
+        print(text_data)
+        return chr(text_data)
+    else:
+        return codecs.decode(text_data, encode)
