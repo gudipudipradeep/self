@@ -1,14 +1,17 @@
 (function () {
-	$("#pencil").click(function (e) {
-		$("#edit_tools").show();
-		$(".note-editable").attr("contenteditable","true");
+	$(".pencil").click(function (e) {
+		var edit_current_post = $(this).parent().parent();
+		edit_current_post.find(".edit_tools").show();
+		edit_current_post.find(".note-editable").attr("contenteditable","true");
 	});
 	
-	$("#floppy").click(function () {
-		$("#edit_tools").hide();
-		$(".note-editable").attr("contenteditable","flase");
+	$(".floppy").click(function () {
+		var edit_current_post = $(this).parent().parent();
+		edit_current_post.find(".edit_tools").hide();
+		edit_current_post.find(".note-editable").attr("contenteditable","flase");
+		var data_article =  $(".note-editable").html();
 	});
-	$("#edit_tools").hide();
+	$(".edit_tools").hide();
 	$(".note-editable").attr("contenteditable","flase");
 	
 	$("#savehtml").click(function(){
@@ -17,7 +20,7 @@
 		var title =  $("#title").val()
 		var description =  $("#description").val()
 		var keywords =  $("#keywords").val()
-    
+		
 		
 		var save_request = $.ajax({
 			  url: "/create-article",
