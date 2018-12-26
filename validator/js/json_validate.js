@@ -80,7 +80,7 @@
 	//
 	$("#json_validate_status,#file_upload_status").hide();
 	$( "#json_validate_status" ).removeClass("alert-danger").removeClass("alert-success");
-	$('#side_nav').toggle(
+	jQuery_1_5_2('#side_nav').toggle(
 	function() {
 	  $('#body_node').css('left', '0');
 	},
