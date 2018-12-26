@@ -8,10 +8,12 @@ import logging
 # sys.path.insert(0, os.path.dirname(__file__))
 # sys.path.append("/home/fileraft/webcontent/source/")
 
-from bottle import route, run, Response, default_app
+from bottle import route, run, Response, default_app, BaseRequest
 from bottle import hook, route, response, run, default_app, request, Bottle, get
 from bottle import static_file
 from upload import file_upload
+
+BaseRequest.MEMFILE_MAX = 1024 * 1024 # (or whatever you want)
 
 
 _allow_origin = '*'

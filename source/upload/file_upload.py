@@ -133,6 +133,10 @@ def save_article():
     #New Web Form
     new_post = url_name.replace(" ", "-")+".html"
     
+    #check file is exist
+    if os.path.isfile(os.path.join(web_dir, new_post)):
+        pass
+    
     #load the template
     util.jinja_render_file(web_dir, "template_render.html", new_post, {"title": title, "content": article_data, "description": description, "keywords": keywords})
     
@@ -157,7 +161,6 @@ def encode_decode():
     #implementation code changes
     if type_of_selection == "encode":
         encode_data = request.forms.get('encode')
-        print(util.encoding(encode_data, encoding_type))
         return {"content": util.encoding(encode_data, encoding_type)}
     elif type_of_selection == "decode":
         decode_data = request.forms.get('decode')
